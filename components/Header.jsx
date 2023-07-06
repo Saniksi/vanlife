@@ -1,20 +1,34 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, NavLink, Link } from 'react-router-dom';
 import React from 'react';
-
 
 export const Header = () => {
   return (
-    <React.Fragment>
+    <>
       <header>
         <Link className="site-logo" to="/">
           #VanLife
         </Link>
         <nav>
-          <Link to="/about">About</Link>
-          <Link to="/vans">Vans</Link>
+          <NavLink
+            className={({ isActive }) => (isActive ? 'active' : null)}
+            to="/host"
+          >
+            Host
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? 'active' : null)}
+            to="/about"
+          >
+            About
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? 'active' : null)}
+            to="/vans"
+          >
+            Vans
+          </NavLink>
         </nav>
       </header>
-      <Outlet />
-    </React.Fragment>
+    </>
   );
 };
